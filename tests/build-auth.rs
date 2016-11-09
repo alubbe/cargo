@@ -164,7 +164,7 @@ Caused by:
             // just not verify the error message here.
             "[..]"
         } else {
-            "[[..]] SSL error: [..]"
+            "[..] SSL error: [..]"
         })));
 
     t.join().ok().unwrap();
