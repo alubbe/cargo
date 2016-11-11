@@ -24,17 +24,12 @@ matrix:
            MAKE_TARGETS="test distcheck doc install uninstall"
            MACOSX_DEPLOYMENT_TARGET=10.7
       os: osx
-      before_install:
-        - export OPENSSL_INCLUDE_DIR=`brew --prefix openssl`/include
-        - export OPENSSL_LIB_DIR=`brew --prefix openssl`/include
     - env: TARGET=i686-apple-darwin
            MAKE_TARGETS=test
            MACOSX_DEPLOYMENT_TARGET=10.7
            CFG_DISABLE_CROSS_TESTS=1
       os: osx
-      before_install:
-        - export OPENSSL_INCLUDE_DIR=`brew --prefix openssl`/include
-        - export OPENSSL_LIB_DIR=`brew --prefix openssl`/include
+      install: brew uninstall openssl && brew install openssl --universal
 
     # stable musl target, tested
     - env: TARGET=x86_64-unknown-linux-musl
